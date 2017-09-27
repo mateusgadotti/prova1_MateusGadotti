@@ -20,11 +20,19 @@ namespace Prova1_MateusGadotti.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        public DbSet<Aluno> Aluno{ get; set; }
+
+        public DbSet<Faixa> Faixa { get; set; }
+
+        public DbSet<TipoDeAssociacao> TipoDeAssociacao { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+  
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

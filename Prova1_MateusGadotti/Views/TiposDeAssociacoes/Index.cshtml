@@ -1,0 +1,33 @@
+﻿@model IEnumerable < Prova1_MateusGadotti.Models.TipoDeAssociacao>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Tipo de Associação</h2>
+else
+@if (@Model.Count() > 0)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Periodo</th>
+                <th>Mensalidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tipo in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@tipo.Nome, "Details", new { tipo.Id })</td>
+                    <td>@tipo.Periodo</td>
+                    <td>@tipo.Mensalidade</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Não tem cliente ainda!</p>
+}
